@@ -1,18 +1,13 @@
 import { Composite, Engine, Render, World } from 'matter-js'
-import { Entities } from 'models/Entities'
-import { Game } from 'models/Game'
+import { Entities } from 'Models/Entities'
+import { Game } from 'Models/Game'
+import { Sound } from 'Models/Sound'
 import { boundaries } from './boundaries'
 import { gameLoop } from './gameLoop'
 import { events } from './events'
 
 
 function oninit() {
-  // TODO: Remove this, Init should handle settings on remove
-  Game.settings = Object.assign( Game.settings, {
-    height: window.innerHeight,
-    width: window.innerWidth,
-  })
-
   Game.hasRun = true
 }
 

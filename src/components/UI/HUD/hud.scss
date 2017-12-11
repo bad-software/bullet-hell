@@ -1,8 +1,86 @@
-.body {
-  left: 0;
-  position: absolute;
-  top: 0;
+$boostMeterWidth: 80px;
+
+.boostMeter {
+  $border-radius: 2px;
+
+  background: #fff;
+  border-radius: $border-radius 0 0 $border-radius;
+  height: 6px;
+  margin-left: auto;
+  width: $boostMeterWidth;
+
+  &__low {
+    background: #f00;
+  }
+
+  &__max {
+    border-radius: 0 !important;
+  }
+
+  &__med {
+    //background: #66dd00;
+  }
+
+  &_wrapper {
+    border: 1px solid #fff;
+    border-radius: $border-radius;
+    content: '';
+    margin-left: auto;
+    margin-top: 0.4rem;
+    overflow: hidden;
+    width: $boostMeterWidth;
+
+    &__med {
+      //border-color: #66dd00;
+    }
+
+    &__low {
+      border-color: #f00;
+    }
+  }
+}
+
+.bottomLeft,
+.bottomRight,
+.topLeft,
+.topRight {
   overflow: hidden;
-  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  width: 50%;
+}
+
+.bottomLeft,
+.bottomRight {
+  bottom: 0;
+}
+
+.bottomLeft,
+.topLeft {
+  left: 0;
   text-align: left;
+}
+
+.bottomRight,
+.topRight {
+  right: 0;
+  text-align: right;
+}
+
+.topLeft,
+.topRight {
+  top: 0;
+}
+
+.debug {
+  font-size: 0.635rem;
+}
+
+.score {
+  color: #ddd;
+  margin-bottom: 4px;
+}
+
+:export {
+  boostMeterWidth: $boostMeterWidth / 1px
 }

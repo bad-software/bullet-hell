@@ -1,8 +1,8 @@
 /**
- * Returns an svg by matching 'type' {String} to a namespaced sprite
+ * Returns an svg by matching 'name' {String} to a namespaced sprite
  */
 import get from 'lodash/get'
-import classList from './classList'
+import { classList } from './classList'
 import { sprites } from './sprites'
 import style from './sprite.scss'
 

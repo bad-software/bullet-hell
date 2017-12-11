@@ -1,5 +1,5 @@
 import m from 'mithril'
-import { Game } from 'models/Game'
+import { Game } from 'Models/Game'
 import { cleanUp } from './cleanUp'
 import { tick } from './tick'
 
@@ -53,4 +53,3 @@ export function gameLoop( time ) {
     prevTime = time
   }
 }
-

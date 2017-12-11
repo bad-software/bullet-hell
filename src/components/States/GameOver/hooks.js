@@ -1,4 +1,4 @@
-import { Game } from 'models/Game'
+import { Game } from 'Models/Game'
 
 function oninit() {
   this.textIndex = Math.floor( Math.random() * this.text.length )

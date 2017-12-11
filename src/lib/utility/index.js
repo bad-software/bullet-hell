@@ -1,4 +1,3 @@
-import m from 'mithril'
 import { debounce } from './_debounce'
 import { throttle } from './_throttle'
 
@@ -21,21 +20,24 @@ export function addHooksToClass ( hooks, thisValue, options ) {
   })
 }
 
-export function addVectorMaps( vec1, vec2 ) {
-  return {
-    x: vec1.x + vec2.x,
-    y: vec1.y + vec2.y
-  }
+export function getRandomElement( array, args ) {
+  const randomElement = array[ Math.floor( Math.random() * array.length )]
+  if ( typeof randomElement === `function` ) return randomElement( args )
+  else return randomElement
 }
 
-export function getDistance( vectorA, vectorB ) {
-  const
-    a = vectorA.x - vectorB.x,
-    b = vectorA.y - vectorB.y
-
-  return Math.sqrt( a*a + b*b )
+export function randomRange( min, max ) {
+  return Math.random() * (max - min) + min
 }
 
+export function roundToNth( num, n ) {
+  /**
+  * Rounds a number to the nth significant digit. `n` must be a natural number.
+  */
+  if ( n > 0 ) {
+    return Math.round( num / 10 ** n) * 10 ** n
+  } else return -1
+}
 
 export {
   debounce,

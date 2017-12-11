@@ -1,5 +1,5 @@
 import { Bodies, World } from 'matter-js'
-import { Game } from 'models/Game'
+import { Game } from 'Models/Game'
 
 
 export function boundaries() {

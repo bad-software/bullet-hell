@@ -1,5 +1,5 @@
 import m from 'mithril'
-import { Sprite } from 'components/Sprite'
+import { Sprite } from 'Components/Sprite'
 import { hooks } from './hooks'
 import style from './enemies.scss'
 

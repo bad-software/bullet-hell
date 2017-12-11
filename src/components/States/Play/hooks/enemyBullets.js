@@ -1,6 +1,6 @@
 import { World } from 'matter-js'
-import { Entities } from 'models/Entities'
-import { Game } from 'models/Game'
+import { Entities } from 'Models/Entities'
+import { Game } from 'Models/Game'
 
 export function enemyBullets( delta ) {
   Entities.enemyBullets.forEach( x => {

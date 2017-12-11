@@ -1,5 +1,5 @@
 import m from 'mithril'
-import { Message } from 'components/UI/Message'
+import { Message } from 'Components/UI/Message'
 import { hooks } from './hooks'
 import style from './init.scss'
 
@@ -19,6 +19,11 @@ export function Init() {
             <button data-name="btn" onclick={ e => this.close( e )}>
               OK
             </button>
+          </div>
+
+          {/* Help */}
+          <div class={ style.help }>
+            Press space to continue
           </div>
 
           {/* Corners */}

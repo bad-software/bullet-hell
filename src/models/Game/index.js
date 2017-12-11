@@ -8,6 +8,12 @@ export const Game = new class C_Game extends Model {
   constructor() {
     super()
     this.ableToSpawn = false
+    this.collision = {
+      filters: {
+        stars: 0x10,
+      }
+    }
+
     this.engine = Engine.create()
     this.hasRun = false
     this.highScore = 0 // Used to skip intro after first time
@@ -28,6 +34,7 @@ export const Game = new class C_Game extends Model {
       height: 0,
       width: 0,
     }
+
     // List of states so I don't forget
     this.states = [ 'Init', 'Intro', 'Play' ]
 
