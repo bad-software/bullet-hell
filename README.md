@@ -5,7 +5,7 @@ Entry for the Ludum Dare 40.
 
 This branch will receive periodic updates while I learn about making games in Javascript.
 
-Play the current version [online](https://bl.ocks.org/bad-software/raw/7624b2f19bb31e6456a74df21d6906a0/)
+Play the current version [online](https://bl.ocks.org/bad-software/raw/052788689418414bd5db1f56b469d3a9/)
 
 Play the original [online](https://bl.ocks.org/bad-software/raw/d6a7fc7e173f8ffbac575bf5c848140c/)
 or view its source [here](https://github.com/bad-software/bullet-hell/tree/original)
