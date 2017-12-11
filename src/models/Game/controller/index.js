@@ -3,6 +3,11 @@ import { Game } from '../index'
 
 
 export const ctrl = {
+  end: () => {
+    Game.running = false
+    Game.over = true
+  },
+
   goTo: {
     init() {
       Game.state = 'Init'
@@ -18,5 +23,5 @@ export const ctrl = {
       Game.state = 'Play'
       m.redraw()
     },
-  }
+  },
 }

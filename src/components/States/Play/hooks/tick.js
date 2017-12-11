@@ -1,8 +1,8 @@
 import { Engine } from 'matter-js'
-import { Entities } from 'models/Entities'
-import { Game } from 'models/Game'
-import { playerController } from './playerController'
-import { enemyController } from './enemyController'
+import { Entities } from 'Models/Entities'
+import { Game } from 'Models/Game'
+import { playerController } from 'Components/Entities/Player/playerController'
+import { enemyController } from 'Components/Entities/Enemies/enemyController'
 import { enemyBullets } from './enemyBullets'
 import { score } from './score'
 
@@ -11,7 +11,7 @@ export function tick( time, delta ) {
   // User input
   // [BUG] Wrapper in a conditional because Player isn't always initialized
   if ( Entities.player ) {
-    playerController( time )
+    playerController( time, delta )
     enemyController( time )
   }
 

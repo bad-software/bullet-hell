@@ -1,5 +1,43 @@
-$animTime: 4000ms;
-$animTime__short: 1500ms;
+@import '../../../stylesheets/utility/functions';
+@import '../../../stylesheets/theme';
+
+$animCredits: 250ms; // 2500ms;
+$animTitle: 250ms; // 2500ms;
+$animReady: 250ms; // 1000ms;
+$animGo: 250ms; // 1000ms;
+
+
+.credits {
+  &A {
+    color: shade( $font-color, 30% );
+    display: inline-block;
+    font-size: 0.55rem;
+    font-weight: bold;
+    line-height: 1.75rem;
+    margin-right: 0.25rem;
+
+    &_B {
+      font-size: 3rem;
+      font-weight: bold;
+      color: shade( $font-color, 60% );
+    }
+  }
+
+  &B {
+    &_A {
+      color: #f00;
+    }
+
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.875rem;
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+
+
 
 .body {
   align-items: center;
@@ -10,39 +48,60 @@ $animTime__short: 1500ms;
   width: 100%;
 }
 
-.grow {
-  $scale: 60;
-  transform: scale3D($scale, $scale, 1)
+.active {
+  display: block;
 }
 
-.longAnim {
-  animation: anim $animTime ease infinite both;
-  transition: transform ($animTime * 2);
+.message {
+  opacity: 0;
 }
 
-.shortAnim {
-  animation: anim $animTime__short ease infinite both;
-  transition: transform ($animTime * 2);
+.credits {
+  animation: FadeIn $animCredits ease forwards, FadeOut $animCredits ease $animCredits forwards;
 }
 
 .title {
+  animation: FadeIn $animTitle cubic-bezier(0.95, 0.05, 0.795, 0.035) forwards, FadeOut $animTitle cubic-bezier(0.95, 0.05, 0.795, 0.035) $animTitle forwards;
   color: #f00;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.ready {
+  animation: FadeIn $animReady ease forwards, FadeOut $animReady ease $animReady forwards;
+}
+
+.go {
+  animation:
+    FadeIn $animGo ease forwards,
+    FadeOut $animGo ease $animGo forwards,
+    Grow $animGo * 2;
 }
 
 .white {
   color: #fff;
 }
 
-@keyframes anim {
+@keyframes FadeIn {
   0% { opacity: 0 }
-  50% { opacity: 100 }
+  100% { opacity: 1 }
+}
+
+@keyframes FadeOut {
+  0% { opacity: 1 }
   100% { opacity: 0 }
+}
+
+@keyframes Grow {
+  $scale: 60;
+  0% { transform: scale3D(1, 1, 1)}
+  100% { transform: scale3D($scale, $scale, 1)}
 }
 
 
 :export {
-  animTime: $animTime / 1ms;
-  animTime__short: $animTime__short / 1ms;
+  animCredits: $animCredits / 1ms;
+  animTitle: $animTitle / 1ms;
+  animReady: $animReady / 1ms;
+  animGo: $animGo / 1ms;
 }

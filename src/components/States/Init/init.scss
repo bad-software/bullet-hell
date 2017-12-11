@@ -7,6 +7,10 @@ $close-speed: 300ms;
 
 .body {
   display: flex;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
 }
 
 .close {
@@ -45,11 +49,20 @@ $close-speed: 300ms;
   }
 }
 
+.help {
+  text-align: center;
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.6125rem;
+  width: 100%;
+}
+
 .message {
   animation: Open $open-speed ease both;
   font-size: 0.8125rem;
   padding: 1rem;
   max-width: 28rem;
+  margin: auto;
 }
 
 

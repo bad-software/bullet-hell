@@ -1,9 +1,9 @@
 import m from 'mithril'
 import pull from 'lodash/pull'
 import { Events, World } from 'matter-js'
-import { Entities } from 'models/Entities'
-import { Game } from 'models/Game'
-
+import { Entities } from 'Models/Entities'
+import { Game } from 'Models/Game'
+import { checkHullBreach, setColor } from 'Lib/utility/matter'
 
 export function events() {
   // Keys
@@ -33,37 +33,36 @@ export function events() {
     pairs.forEach( x => {
       let
         bullet,
-        enemy,
+        enemies = [],
         player
 
       // Is there a bullet?
       if ( x.bodyA.label === 'Bullet' ) bullet = x.bodyA
       else if ( x.bodyB.label === 'Bullet' ) bullet = x.bodyB
 
-      // Is there an enemy?
-      if ( x.bodyA.label === 'Enemy' ) enemy = x.bodyA
-      else if ( x.bodyB.label === 'Enemy' ) enemy = x.bodyB
+      // Are either or both of them enemies?
+      if ( x.bodyA.label === 'Enemy' ) enemies.push( x.bodyA )
+      if ( x.bodyB.label === 'Enemy' ) enemies.push( x.bodyB )
 
       // Is there a player?
       if ( x.bodyA.label === 'Player' ) player = x.bodyA
       else if ( x.bodyB.label === 'Player' ) player = x.bodyB
 
-      // Did a player and bullet collide?
-      if ( bullet ) {
-        if ( enemy ) {
-          handleCollision_Bullet_Enemy( bullet, enemy )
-        } else if ( player ) {
-          handleCollision_Bullet_Player( bullet, player )
-        }
-      } else if ( enemy && player ) {
-        handleCollision_Enemy_Player( enemy, player )
-      }
+      /*if ( enemies.length === 2 ) {
+        handleCollision_Enemies( enemies )
+      } */
+      /*else*/ if ( bullet ) {
+        if ( enemies.length )
+          handleCollision_Bullet_Enemy( bullet, enemies[0] )
+        else if ( player ) handleCollision_Bullet_Player( bullet, player )
+      } else if ( enemies.length && player )
+        handleCollision_Enemy_Player( enemies[0].parent, player.parent )
     })
   })
 }
 
 function handleCollision_Bullet_Enemy( bullet, enemy ) {
-  // matter-js will often trigger multiple collisions for each 
+  // matter-js will often trigger multiple collisions for each
   // polygon the bullet touches, but we can only kill the enemy once
   if ( enemy.parent.isAlive ) {
     // Color the enemy red
@@ -78,16 +77,11 @@ function handleCollision_Bullet_Enemy( bullet, enemy ) {
     pull( Entities.bullets, bullet )
     World.remove( Game.world, bullet )
 
-    // Remove the enemy after a delay so we can see its color change
-    setTimeout( () => {
-      pull( Entities.enemies, enemy.parent )
-      World.remove( Game.world, enemy.parent )
-    }, 500 )
+    // Destroy the enemy
+    Entities.ctrl.enemies.destroy( enemy )
 
+    // Increment score
     Game.score += 20000
-
-    // Kill the enemy
-    enemy.parent.isAlive = false
   }
 }
 
@@ -105,26 +99,48 @@ function handleCollision_Bullet_Player( bullet, player ) {
   pull( Entities.bullets, bullet )
 
   // Game over!
-  Game.running = false
-  Game.over = true
+  Game.ctrl.end()
+}
+
+function handleCollision_Enemies( enemies ) {
+  enemies.forEach(( e, i ) => {
+    // Check if enemy is alive and make sure the other
+    // enemy's velocity is over the enemy's threshold
+
+    if (
+      e.parent.isAlive &&
+      i === 0 ?
+        checkHullBreach( e.parent, enemies[1].parent )
+        : checkHullBreach( e.parent, enemies[0].parent )
+    )
+      Entities.ctrl.enemies.destroy( e.parent )
+  })
 }
 
 function handleCollision_Enemy_Player( enemy, player ) {
-  enemy.parent.parts.forEach(( x, i ) => {
-    if ( i !== 0 ) {
-      x.render.fillStyle = '#f00'
-      x.render.strokeStyle = '#f00'
-    }
-  })
+  if ( enemy.isAlive ) {
+    if ( true ) { // if player is would die
+      enemy.parts.forEach(( x ) => {
+        setColor( x, '#f00' )
+      })
 
-  player.parent.parts.forEach(( x, i ) => {
-    if ( i !== 0 ) {
-      x.render.fillStyle = '#f00'
-      x.render.strokeStyle = '#f00'
-    }
-  })
+      player.parts.forEach(( x ) => {
+        setColor( x, '#f00' )
+      })
 
-  // Game over!
-  Game.running = false
-  Game.over = true
+      // Game over!
+      Game.running = false
+      Game.over = true
+    } else { // If player would live
+      if (
+        checkHullBreach( enemy, player )
+      ) {
+        enemy.parts.forEach(( x ) => {
+          setColor( x, '#f00' )
+        })
+
+        Entities.ctrl.enemies.destroy( enemy )
+      }
+    }
+  }
 }

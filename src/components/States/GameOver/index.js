@@ -1,5 +1,5 @@
 import m from 'mithril'
-import { Game } from 'models/Game'
+import { Game } from 'Models/Game'
 import hooks from './hooks'
 import style from './gameOver.scss'
 

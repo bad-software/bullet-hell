@@ -1,7 +1,7 @@
 import { Bodies, World } from 'matter-js'
-import { getDistance } from 'lib/utility'
-import { Entities } from 'models/Entities'
-import { Game } from 'models/Game'
+import { getDistance } from 'Lib/utility/matter'
+import { Entities } from 'Models/Entities'
+import { Game } from 'Models/Game'
 
 function randomPosition() {
   const position = {

@@ -1,20 +1,22 @@
 import { Svg } from 'matter-js'
-import { Entities } from 'models/Entities'
-import { Game } from 'models/Game'
+import { Entities } from 'Models/Entities'
+import { Game } from 'Models/Game'
 import { spawnEnemy } from './spawnEnemy'
 
 
 function oncreate( vnode ) {
   this.options = {
     density: 0.0001,
+    enemyType: 'saucer',
     friction: 0,
     frictionAir: 0.075,
     frictionStatic: 0,
+    // Maximum impact speed hull can withstand before capsizing
+    impactThreshold: 1,
     isAlive: true,
     label: 'Enemy',
-    fireLimit: 2000, // How many ms between shots
+    fireLimit: 3000, // How many ms between shots
     lastFired: 0, // How many ms it's been since we last fired
-    maxSpeed: 1,
     thrust: 0.00001,
 
     bullet: {
@@ -23,7 +25,7 @@ function oncreate( vnode ) {
       rotSpeed: 4,
       speed: 4,
       timeAlive: 0,
-      timeToLive: 6000,
+      timeToLive: 6000, // Divide by fireLimit to get max on-screen bullets
       friction: 0,
       frictionAir: 0,
       frictionStatic: 0,
