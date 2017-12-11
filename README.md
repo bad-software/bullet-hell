@@ -6,7 +6,7 @@ Entry for the Ludum Dare 40.
 The master branch will receive periodic updates while I learn about making games in Javascript.
 
 [Play the original online](https://bl.ocks.org/bad-software/raw/d6a7fc7e173f8ffbac575bf5c848140c/)
-or view it's source [here.](https://github.com/bad-software/bullet-hell/tree/original)
+or view its source [here.](https://github.com/bad-software/bullet-hell/tree/original)
 
 #### Requirements
 
