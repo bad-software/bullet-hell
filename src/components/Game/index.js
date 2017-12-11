@@ -30,7 +30,7 @@ export function Game() {
               M_Game.running ? null : M_Game.over ?
                 <GameOver key={2}/>
                 : <Pause key={3}/>,
-              Entities.player ? <HUD key={4}/> : null,
+              Entities.player && Game.running ? <HUD key={4}/> : null,
               //<Debug key={5}/>,
             ]
           }()}
