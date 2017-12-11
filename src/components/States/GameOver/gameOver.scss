@@ -1,0 +1,45 @@
+@import '../../../stylesheets/media';
+@import '../../../stylesheets/theme';
+
+.body {
+  font-size: 0.675rem;
+  font-weight: bold;
+  position: absolute;
+}
+
+.highScore {
+  font-size: 1em;
+}
+
+.score {
+  font-size: 2em;
+}
+
+.text {
+  font-size: 1.5em;
+}
+
+@media only screen and (min-width: 320px) {
+  .body {
+    font-size: 1rem;
+
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (min-height: 400px) {
+  .body {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-height: 400px) {
+  .text {
+    margin-bottom: 4em;
+  }
+}

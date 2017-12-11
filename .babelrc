@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "env",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime",
+    ["transform-react-jsx", {
+      "pragma": "m"
+    }],
+    "static-fs"
+  ],
+  "env": {
+    "development": {
+      "sourceMaps": "dev"
+    },
+    "production": {
+
+    }
+  }
+}

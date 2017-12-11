@@ -1,0 +1,34 @@
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade( $color, $percentage ) {
+  @return mix( black, $color, $percentage );
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint( $color, $percentage ) {
+  @return mix( white, $color, $percentage );
+}
+
+/// Alter a color depending on theme type
+/// @access public
+/// @param {String} $theme-type - type of theme
+/// @param {Color} $color - color to alter
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function alter-color( $theme-type, $color, $percentage ) {
+  @if $theme-type == 'light' {
+    @return shade( $color, $percentage );
+  }
+
+  @if $theme-type == 'dark' {
+    @return tint( $color, $percentage );
+  }
+}

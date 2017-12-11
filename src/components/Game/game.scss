@@ -1,0 +1,14 @@
+@import '../../stylesheets/media';
+@import '../../stylesheets/theme';
+
+.body {
+  align-items: center;
+  background: #18181D; //royalblue
+  color: ghostwhite;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}

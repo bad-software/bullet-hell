@@ -1,0 +1,48 @@
+$animTime: 4000ms;
+$animTime__short: 1500ms;
+
+.body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.grow {
+  $scale: 60;
+  transform: scale3D($scale, $scale, 1)
+}
+
+.longAnim {
+  animation: anim $animTime ease infinite both;
+  transition: transform ($animTime * 2);
+}
+
+.shortAnim {
+  animation: anim $animTime__short ease infinite both;
+  transition: transform ($animTime * 2);
+}
+
+.title {
+  color: #f00;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.white {
+  color: #fff;
+}
+
+@keyframes anim {
+  0% { opacity: 0 }
+  50% { opacity: 100 }
+  100% { opacity: 0 }
+}
+
+
+:export {
+  animTime: $animTime / 1ms;
+  animTime__short: $animTime__short / 1ms;
+}

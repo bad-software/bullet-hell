@@ -1,0 +1,70 @@
+$open-speed: 300ms;
+$close-speed: 300ms;
+
+.btnFix {
+  transform: translateZ( 0 )
+}
+
+.body {
+  display: flex;
+}
+
+.close {
+  animation: Close $close-speed ease both !important;
+}
+
+.corner {
+  $border: 1px solid #fff;
+
+  height: 10vh;
+  width: 10vh;
+  position: absolute;
+
+  &__ne,
+  &__nw {
+    border-top: $border;
+    top: 4px;
+  }
+
+  &__ne,
+  &__se {
+    border-left: $border;
+    left: 4px;
+  }
+
+  &__nw,
+  &__sw {
+    border-right: $border;
+    right: 4px;
+  }
+
+  &__se,
+  &__sw {
+    border-bottom: $border;
+    bottom: 4px;
+  }
+}
+
+.message {
+  animation: Open $open-speed ease both;
+  font-size: 0.8125rem;
+  padding: 1rem;
+  max-width: 28rem;
+}
+
+
+@keyframes Open {
+  0% { transform: scale3D( 0, 0, 1 );}
+  100% { transform: scale3D( 1, 1, 1 );}
+}
+
+@keyframes Close {
+  0% { transform: scale3D( 1, 1, 1 )}
+  100% { transform: scale3D( 0, 0, 1 )}
+}
+
+
+:export {
+  openSpeed: $open-speed / 1ms;
+  closeSpeed: $close-speed / 1ms;
+}

@@ -1,0 +1,93 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended"
+  ],
+
+  "parser": "babel-eslint",
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+
+  "plugins": [
+    "import",
+    "promise",
+    "react"
+  ],
+
+  "rules": {
+    "func-names": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": ["error", {}],
+
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "max-len": [
+      1,
+      {
+        "code": 79,
+        "comments": 79,
+        "ignoreUrls": true
+      }
+    ],
+
+    "max-statements": ["warn", 40],
+    "no-console": 1,
+    "no-unused-vars": [ 2, {
+      "varsIgnorePattern": "^m$"
+    }],
+    "no-use-before-define": ["off", {
+      "functions": false,
+
+      "classes": false
+    }],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+
+    // JSX
+    "react/display-name": 0,
+    "react/no-unknown-property": 0,
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0,
+    "jsx-quotes": ["error", "prefer-double"]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "config/webpack.shared.config.js"
+      }
+    }
+  }
+}

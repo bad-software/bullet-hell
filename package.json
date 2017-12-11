@@ -1,0 +1,60 @@
+{
+  "name": "bullet-hell",
+  "version": "1.0.0",
+  "description": " Entry for the Ludum Dare 40",
+  "main": "src/index.js",
+  "author": "Bad Software",
+  "license": "MIT",
+  "broswerslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "matter-js": "^0.14.0",
+    "mithril": "^1.1.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-static-fs": "^1.1.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.1",
+    "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "html-webpack-harddisk-plugin": "^0.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.10.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.7",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-subresource-integrity": "^1.0.1"
+  },
+  "scripts": {
+    "build": "webpack -p --config config/webpack.production.config.js --colors --progress",
+    "build:devserver": "NODE_ENV=devserver webpack-dev-server --config config/webpack.devserver.config.js --colors --progress --watch | grep -v  \"\\[built\\]\"",
+    "serve": "http-server ./public -p 8080 --cors --gzip"
+  }
+}

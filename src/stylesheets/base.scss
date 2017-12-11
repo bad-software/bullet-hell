@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  margin: 0;
+}
+
+//noinspection SassScssResolvedByNameOnly
+html {
+  box-sizing: border-box;
+  color: $font-color;
+  font-family: 'MS Trebuchet',  'Helvetica', 'Verdana', sans-serif;
+  font-size: $default-font-size;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: hsl(0,0, 90);
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:link,
+  &:visited {
+    color: #06d;
+  }
+
+  &:hover {
+    color: #39f;
+  }
+
+  &:active {
+    color: #9c27b0;
+  }
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+h2 {
+  margin: 2rem;
+  text-align: center;
+}
+
+h5 {
+  margin-bottom: 0.25rem;
+  font-weight: lighter;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* Normalization & consistency across browsers */
+
+%common_sub-sup {
+  font-size: 75%;
+  line-height: 0; // Prevent mutation of parent line-height
+  position: relative;
+  vertical-align: baseline;
+}
+
+button,
+select {
+  text-transform: none; // Inconsistent inheritance across browsers
+}
+
+button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+progress {
+  vertical-align: baseline;
+}
+sub {
+  @extend %common_sub-sup;
+  bottom: -0.25em;
+}
+
+sup {
+  @extend %common_sub-sup;
+  top: -0.5em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button {
+  overflow: visible; // IE 11
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; // Removes leftover margin
+}
+
+main {
+  display: block; // IE 11
+}
+
+textarea {
+  overflow: auto; // Remove scrollbar in IE 11
+}

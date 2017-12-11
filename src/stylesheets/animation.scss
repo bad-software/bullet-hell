@@ -1,0 +1,14 @@
+@keyframes Scale2DUp {
+  0% { transform: scale3D( 0, 0, 1 )}
+  100% { transform: scale3D( 1, 1, 1 )}
+}
+
+@keyframes Scale2DDown {
+  0% { transform: scale3D( 1, 1, 1 )}
+  100% { transform: scale3D( 0, 0, 1 )}
+}
+
+
+:export {
+  Scale2DUp: Scale2DUp;
+}

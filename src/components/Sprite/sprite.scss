@@ -1,0 +1,15 @@
+@import '../../stylesheets/theme';
+
+.sprite {
+  height: 100%;
+  width: 100%;
+}
+
+.white {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.noStroke {
+  stroke: none !important;
+}
