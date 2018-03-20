@@ -129,8 +129,8 @@ function handleCollision_Enemy_Player( enemy, player ) {
       })
 
       // Game over!
-      Game.running = false
-      Game.over = true
+      Game.isRunning = false
+      Game.isOver = true
     } else { // If player would live
       if (
         checkHullBreach( enemy, player )

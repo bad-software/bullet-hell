@@ -8,7 +8,7 @@ import { tick } from './tick'
 let prevTime
 
 export function gameLoop( time ) {
-  if ( Game.running ) { // Main loop
+  if ( Game.isRunning ) { // Main loop
     // Initialize prevTime
     if ( !prevTime ) prevTime = time
 
@@ -26,7 +26,7 @@ export function gameLoop( time ) {
     cleanUp( time, prevTime, delta )
     prevTime = time
 
-  } else if ( Game.over ) { // Game is over
+  } else if ( Game.isOver ) { // Game is over
 
     // Reset if we press the mouse button or `R`
     if ( Game.mouse['0'] || Game.keys['KeyR'] ) {
@@ -44,7 +44,7 @@ export function gameLoop( time ) {
 
     // Enter resumes game
     if ( Game.keys['Enter'] ) {
-      Game.running = true
+      Game.isRunning = true
     }
 
     // Prepare for next frame

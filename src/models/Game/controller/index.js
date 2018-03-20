@@ -4,8 +4,8 @@ import { Game } from '../index'
 
 export const ctrl = {
   end: () => {
-    Game.running = false
-    Game.over = true
+    Game.isRunning = false
+    Game.isOver = true
   },
 
   goTo: {

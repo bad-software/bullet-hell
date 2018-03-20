@@ -12,5 +12,5 @@ export function playerController( time, delta ) {
   fire( player, time )
 
   // Pause
-  if ( Game.keys['Escape'] ) Game.running = false
+  if ( Game.keys['Escape'] ) Game.isRunning = false
 }

@@ -27,10 +27,10 @@ export function Game() {
               <Play key={1}/>,
               // Is the game running?
               // If it's not, is the game over or is it just paused?
-              M_Game.running ? null : M_Game.over ?
+              M_Game.isRunning ? null : M_Game.isOver ?
                 <GameOver key={2}/>
                 : <Pause key={3}/>,
-              Entities.player && M_Game.running ? <HUD key={4}/> : null,
+              Entities.player && M_Game.isRunning ? <HUD key={4}/> : null,
               //<Debug key={5}/>,
             ]
           }()}

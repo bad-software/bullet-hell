@@ -113,5 +113,5 @@ export function playerController( time ) {
   }
 
   // Options
-  if ( Game.keys['Escape'] ) Game.running = false
+  if ( Game.keys['Escape'] ) Game.isRunning = false
 }

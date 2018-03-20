@@ -30,7 +30,7 @@ function oncreate( vnode ) {
   Render.run( this.render )
 
   // Self explanatory
-  Game.running = true
+  Game.isRunning = true
 
   // Run game loop
   gameLoop()
@@ -38,7 +38,7 @@ function oncreate( vnode ) {
 
 function onremove() {
   // Reset properties
-  Game.over = false
+  Game.isOver = false
   Game.score = 0
   Game.timeSinceLastSpawn = 0
   Game.timeSinceStart = 0

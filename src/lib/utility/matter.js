@@ -60,7 +60,7 @@ export function explodeBody( body, multiplier=1 ) {
             })
 
             // Keep debris on screen if the game is over
-            //if ( !Game.over )
+            //if ( !Game.isOver )
             setTimeout( () => World.remove( Game.world, newPart ), 800 )
           }
         }

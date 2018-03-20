@@ -26,7 +26,7 @@ export function HUD() {
             <div class={ style.topLeft }>
               {/* Score */}
               { // Don't show if the game is over
-                !Game.over ?
+                !Game.isOver ?
                   <div class={ style.score }>
                     {/*Score:&nbsp;*/}
                     {
