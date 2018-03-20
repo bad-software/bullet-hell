@@ -1,11 +1,11 @@
-const webpack = require('webpack')
-const CompressionPlugin = require('compression-webpack-plugin')
+import webpack from 'webpack'
+import CompressionPlugin from 'compression-webpack-plugin'
+import { webpackConfig as commonConfig } from './common'
 
-const sharedConfig = require( './webpack.shared.config' )
 
-const webpackConfig = Object.assign( sharedConfig, {
-  //devtool: 'cheap-module-source-map',
-})
+const webpackConfig = {
+  ...commonConfig
+}
 
 // Production customization
 webpackConfig.plugins.push(

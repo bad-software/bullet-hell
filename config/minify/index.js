@@ -1,4 +1,4 @@
-module.exports = {
+export const minifyOptions = {
   collapseBooleanAttributes: true,
   collapseInlineTagWhitespace: true,
   collapseWhitespace: true,
