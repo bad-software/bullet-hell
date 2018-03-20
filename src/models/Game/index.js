@@ -17,14 +17,14 @@ export const Game = new class C_Game extends Model {
     this.engine = Engine.create()
     this.hasRun = false
     this.highScore = 0 // Used to skip intro after first time
+    this.isOver = false
+    this.isRunning = false
     this.keys = {} // Map of each active key's code
-    this.lastBullet = {}
     this.lastDelta = 0
     this.mouse = {} // Map of each active mouse button's number
-    this.over = false
     this.player = null
-    this.running = false
     this.score = 0
+
     this.settings = {
       maxBullets: 100,
       maxEnemies: 20,
@@ -35,14 +35,10 @@ export const Game = new class C_Game extends Model {
       width: 0,
     }
 
-    // List of states so I don't forget
-    this.states = [ 'Init', 'Intro', 'Play' ]
-
     // The current state we're in
     this.state = 'Init'
 
     this.timeSinceLastSpawn = 0
-    this.timeSinceStart = 0
 
     // Alias for engine.world
     this.world = this.engine.world
