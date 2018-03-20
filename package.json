@@ -1,6 +1,6 @@
 {
   "name": "bullet-hell",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": " Entry for the Ludum Dare 40",
   "main": "src/index.js",
   "author": "Bad Software",
