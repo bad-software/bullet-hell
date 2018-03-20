@@ -1,3 +1,6 @@
+@import '../../../stylesheets/theme';
+@import '../../../stylesheets/utility/functions';
+
 $open-speed: 300ms;
 $close-speed: 300ms;
 
@@ -50,11 +53,27 @@ $close-speed: 300ms;
 }
 
 .help {
-  text-align: center;
   position: absolute;
   bottom: 1rem;
+  display: none; // flex
+  flex-flow: column nowrap;
   font-size: 0.6125rem;
   width: 100%;
+
+  &_text {
+    margin-bottom: 0.75rem;
+  }
+
+  &_controls {
+    color: shade( $font-color, 50% );
+    margin: 0 auto;
+    text-align: left;
+
+    &_label {
+      color: shade( $font-color, 15% );
+      font-weight: bold;
+    }
+  }
 }
 
 .message {
@@ -76,7 +95,12 @@ $close-speed: 300ms;
   100% { transform: scale3D( 0, 0, 1 )}
 }
 
+// Only show help if we have enough vertical space
+@media only screen and (min-height: 24rem ) {
+  .help { display: flex }
+}
 
+//noinspection ALL
 :export {
   openSpeed: $open-speed / 1ms;
   closeSpeed: $close-speed / 1ms;
