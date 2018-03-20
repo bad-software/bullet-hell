@@ -1,7 +1,6 @@
 import { Game } from 'Models/Game'
 import style from './init.scss'
 
-
 function oncreate( vnode ) {
   const btn = Array.from(
     Array.from( vnode.dom.children )
