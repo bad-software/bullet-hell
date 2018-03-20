@@ -23,7 +23,7 @@ export function gameLoop( time ) {
     // We set `prevTime` along with `cleanUp` each time,
     // But for some reason the game breaks when we factor it into `cleanUp`
     window.requestAnimationFrame( gameLoop )
-    cleanUp( time, prevTime, delta )
+    cleanUp( time, prevTime )
     prevTime = time
 
   } else if ( Game.isOver ) { // Game is over

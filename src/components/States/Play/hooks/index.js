@@ -41,7 +41,6 @@ function onremove() {
   Game.isOver = false
   Game.score = 0
   Game.timeSinceLastSpawn = 0
-  Game.timeSinceStart = 0
 
   // Clear entities model
   Entities.bullets = []
