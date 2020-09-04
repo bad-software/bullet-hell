@@ -12,7 +12,7 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "matter-js": "^0.14.0",
-    "mithril": "^1.1.6"
+    "mithril": "^1.1.7"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
