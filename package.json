@@ -10,7 +10,7 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "matter-js": "^0.14.0",
     "mithril": "^1.1.6"
   },
